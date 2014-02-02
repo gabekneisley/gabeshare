@@ -10,7 +10,7 @@ module.exports = function(grunt) {
           baseUrl: "app/scripts",
           mainConfigFile: "app/scripts/config.js",
           name: "comments",
-          optimize: "none",
+          // optimize: "none",
           dir: "public/scripts"
         }
       }

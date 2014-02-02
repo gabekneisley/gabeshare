@@ -1,10 +1,1 @@
-define(['backbone', 'templates'], function(Backbone, T) {
-  var CommentView = Backbone.View.extend({
-    tagName: 'li',
-    initialize: function() {
-      this.$el.append(T.comment.render(this.model.toRender()));
-    }
-  });
-
-  return CommentView;
-});
+define(["backbone","templates"],function(e,t){var n=e.View.extend({tagName:"li",initialize:function(){this.$el.append(t.comment.render(this.model.toRender()))}});return n});
