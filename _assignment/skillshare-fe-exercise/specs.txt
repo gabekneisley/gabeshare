@@ -1,0 +1,15 @@
+Colors
+=============
+
+Body font color: #444;
+Orange: #f36c21
+Orange Hover: #f68c51
+Secondary Gray: #777
+Tertiary Gray: #999
+Border Gray: #ddd
+
+
+Font Sizes
+=============
+
+22px, 16px, 14px
