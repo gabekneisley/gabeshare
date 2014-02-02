@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Front-end: Comment Component</title>
+  <meta name="viewport" content="width=580">
+  <link rel="stylesheet" href="css/framework.css">
+</head>
+<body>
+  <div class="outer-page-wrapper">
+    <div class="site-header">
+      <h1 class="logotype">Skillshare</h1>
+    </div>
+    <div class="page-header">
+      <div class="content-container">
+        <h1 class="page-title">Comment component</h1>
+        <p class="title-description">
+          Allows students, instructors, and other users to communicate within the context of a particular content item.
+        </p>
+        <p class="attribution">
+          <span class="author">Coded by Gabe Kneisley</span><span class="author-title"> &middot; Front-end hacker, Interaction designer</span>
+        </p>
+      </div>
+    </div>
+    <div class="page-content">
+      <section>
+        <h2>Usage</h2>
+        <p>
+          The comment component is meant to be loaded asynchronously. To place it, require the module <code>views/comment-block</code> (which is an AMD compliant Backbone view) and then instantiate a <code>CommentBlockView</code>, like this:
+        </p>
+      </section>
+      <div id="comment_component_placeholder"></div>
+    </div>
+  </div>
+
+  <script data-main="scripts/comments.js" src="scripts/lib/require.js"></script>
+</body>
+</html>

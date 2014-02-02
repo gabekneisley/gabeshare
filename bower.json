@@ -1,4 +1,12 @@
 {
   "name": "gabeshare",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": null,
+    "underscore": null,
+    "backbone": null,
+    "hogan": null,
+    "requirejs": null,
+    "moment": null
+  }
 }
