@@ -29,6 +29,87 @@
         <p>
           The comment component is meant to be loaded asynchronously. To place it, require the module <code>views/comment-block</code> (which is an AMD compliant Backbone view) and then instantiate a <code>CommentBlockView</code>, like this:
         </p>
+        <pre class="code">require(['views/comment-block'], function(CommentBlockView) {
+  new CommentBlockView;
+});</pre>
+        <p>
+          The view will look for (and replace) an element with an id of 'comment_component_placeholder', such as the one in this page's source: <code>&lt;div id="comment_component_placeholder"&gt;&lt;/div&gt;</code>
+        </p>
+      </section>
+      <section>
+        <h2>Implementation</h2>
+        <p>
+          The comment component uses several libraries:
+        </p>
+        <dl>
+          <dt>Require</dt>
+          <dd>Manages dependencies (and seems to already be deployed at Skillshare)</dd>
+
+          <dt>Backbone</dt>
+          <dd>Models the data, fakes a server call to load the json data, manages comment ordering and provides an easy view for the data.</dd>
+
+          <dt><a href="http://momentjs.com/">Moment</a></dt>
+          <dd>Used to parse the dates of existing comments and easily format new comments to meet the specification.</dd>
+
+          <dt><a href="http://twitter.github.io/hogan.js/">Hogan</a></dt>
+          <dd>Provides fast, lean templating that can be pre-compiled. (I also just personally prefer Mustache syntax to the ERB-style syntax baked into Underscore)</dd>
+
+          <dt><a href="https://github.com/bgrins/ExpandingTextareas">ExpandingTextareas</a> (a jQuery plugin)</dt>
+          <dd>A straightforward, AMD compliant plugin to make textareas expand with user input (which seems appropriate for this component)</dd>
+
+          <dt>jQuery and Underscore</dt>
+          <dd>They are backbone dependencies anyway.</dd>
+
+          <dt>Also in the toolchain...</dt>
+          <dd>I'm using LESS, Grunt, &amp; Bower pre-build to make life easier. I also lifted some of the boilerplate LESS code from Bootstrap, along with their LESS implementation of Normalize.css</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>One small issue...</h2>
+        <p>
+          Since the JSON file and the ui.png file were ordered differently, I assumed that sorting the dates client-side was part of the homework. It turns out, however, that the day names accompanying the dates seem to be made up (because the last time June 9th fell on a Monday was 2008, and the last Saturday, May 14th was in 2011). I used the actual days those dates fell upon in 2013. If I were on the team, I would suggest that we send ISO 8601 dates to the client and prettify them in the browser.
+        </p>
+      </section>
+      <section>
+        <h2>Hierarchical Replies</h2>
+        <p>
+          Since the layout is 560 pixels wide, there is obviously plenty of room to indent each level of nested reply by another 51px, but I'd suggest a different solution.
+        </p>
+        <p>
+          Beginning with the (testable) assumption that comments on Skillshare are typically topical and civil, I'd suggest not nesting replies. I say that because, in my opinion, nested replies are most useful when participants are likely to begin (and continue to engage in) a tangental discussion&mdash;like Hacker News or Reddit. Instead, we could make each top level comment more of its own block (with extra whitespace and maybe a subtle horizontal border) and place each reply directly beneath the last. This isn't all that different from the way comments on class projects are currently handled on the site. We could also implement @mentions and maybe a clever system for quoting other users.
+        </p>
+        <p>
+          To handle replies from a technical point of view (whether nested or flat), I would modify the <code>CommentView</code> so that it was aware (through the model) of it's nesting level: (0-1 for flat commenting and 0-n for nested). That way the view could use the right template. To handle deletion, comment views would listen for a <code>parent-deleted</code> event and delete themselves in response. It would also be pretty easy to allow an undo instead of requiring a confirmation popup or the like.
+        </p>
+        <p>
+          As an aside, if deleting a parent comment deletes its replies (which other people have written), perhaps we could notify the author in a way that sent the text back to him or her. Something like: "The original author deleted the comment you replied to, so your comment was deleted as well. [blockquote the comment]". Just in case the person said something useful or clever or wanted to easily post it again.
+        </p>
+        <p>
+          To implement @mentions, I would use Twitter's typeahead library, or something like it, and allow @mentions of people, courses, projects, and any other top level items that made sense.
+        </p>
+      </section>
+      <section>
+        <h2>Liking a comment</h2>
+        <p>
+          To implement likes, I would add a <code>liked_by</code> hash to the model with the names and profile links of the people who like it, and then listen for a <code>comment-liked</code> event from the view&mdash;but from within the view itself, via a <code>this.model.on('comment-liked', ...)</code>&mdash;which seems more meta than it actually is. When the event happens, the model can make the appropriate server request to notify the author, etc.
+        </p>
+      </section>
+      <section>
+        <h2>Other features</h2>
+        <p>There are several other features that could be added to make the module more extensible (and more awesome):</p>
+        <dl>
+          <dt>Responsive optimizations</dt>
+          <dd>Add media queries and mobile-optimized font sizes and layout to improve readability and the user experience for text entry. Also, backup text input to local storage and add functionality (probably hooking into a library like <a href="http://github.hubspot.com/offline/docs/welcome/">Offline.js</a>) to reduce any connectivity-related frustration.</dd>
+
+          <dt>Pagination</dt>
+          <dd>Modify the <code>CommentBlockView</code> to allow pagination after some threshold of comments is reached. Also, create a pagination control view that can be reused in other components (or as a standalone component on help pages, project lists, etc). It could watch scroll position and pre-fetch the next page as the user scrolls toward the bottom.</dd>
+          
+          <dt>Rich text composer</dt>
+          <dd>Add a configuration option for the level of rich text allowed on posts to maximize reuse.</dd>
+          
+          <dt>Tests and optimizations</dt>
+          <dd>Write unit tests for the whole module, especially the models, collections, and views.</dd>
+        </dl>
       </section>
       <div id="comment_component_placeholder"></div>
     </div>

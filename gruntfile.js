@@ -118,5 +118,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-hogan');
   grunt.loadNpmTasks('grunt-shell');
 
-  grunt.registerTask('default', ['hogan', 'requirejs', 'clean:build', "shell:confirm"]);
+  grunt.registerTask('default', ['hogan', 'requirejs', 'less', 'clean:build', "shell:confirm"]);
 };

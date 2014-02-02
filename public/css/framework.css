@@ -1,0 +1,413 @@
+/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  background: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444444;
+  background-color: #ffffff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+textarea {
+  height: auto;
+  min-height: 35px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-size: 22px;
+}
+h4,
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #777777;
+}
+button {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #f36c21;
+  letter-spacing: 1px;
+  height: 35px;
+  padding: 7px 13px 5px 14px;
+}
+button:hover {
+  background-color: #f68c51;
+}
+code,
+pre {
+  font-family: monospace;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #777777;
+  background-color: #f1f4f4;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+pre.code {
+  display: block;
+  padding: 10px 10px 10px 30px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 21px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #777777;
+  background-color: #f1f4f4;
+  border: 1px solid #dadfe1;
+  border-radius: 3px;
+}
+dl {
+  margin-bottom: 12px;
+}
+dt,
+dd {
+  line-height: 21px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+a {
+  color: inherit;
+}
+a:hover {
+  color: #777777;
+}
+.site-header {
+  border-bottom: 1px solid #dadfe1;
+  height: 80px;
+  padding-left: 50px;
+}
+.logotype {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+  height: 80px;
+  width: 161px;
+  background: transparent url('../images/logo.png') no-repeat center;
+}
+.content-container {
+  width: 560px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.page-header {
+  background-color: #f1f4f4;
+  border-bottom: 1px solid #dadfe1;
+  padding: 41px 0;
+}
+.title-description {
+  margin: 7px 0 0;
+}
+.attribution {
+  color: #777777;
+  margin-bottom: 0;
+}
+.page-content {
+  width: 560px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.page-content section {
+  margin: 51px 0 10px;
+}
+.comment-list {
+  margin-top: 30px;
+  padding: 30px 0;
+  list-style: none;
+  border-top: 1px solid #dddddd;
+}
+.comment-creation-form {
+  margin-top: 30px;
+  position: relative;
+}
+.comment-creation-form:before,
+.comment-creation-form:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.comment-creation-form:after {
+  clear: both;
+}
+.input-container {
+  width: 482px;
+  float: left;
+}
+.button-container {
+  width: 61px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.textareaClone {
+  margin: 0;
+  border: 1px solid #dadfe1;
+  padding: 7px 11px 5px;
+}
+.comment-input {
+  width: 100%;
+  padding: 7px 11px 5px;
+  border: 1px solid #dadfe1;
+  border-radius: 3px;
+}
+.comment-outer-container:before,
+.comment-outer-container:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.comment-outer-container:after {
+  clear: both;
+}
+.user-pic-container {
+  width: 51px;
+  padding-right: 16px;
+  float: left;
+}
+.user-pic-container img {
+  max-width: 35px;
+  height: auto;
+  border-radius: 3px;
+}
+.comment-content {
+  width: 509px;
+  float: right;
+}
+.comment-user-title {
+  margin-top: 6px;
+}
+.comment-body {
+  margin-top: 12px;
+}
+.comment-body p {
+  margin: 0 0 12px;
+}
+.comment-body p:last-child {
+  margin: 0;
+}
+.comment-date-posted {
+  margin: 8px 0 30px;
+}
+.comment-date-posted time {
+  font-weight: normal;
+  color: #777777;
+}

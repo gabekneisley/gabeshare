@@ -1,0 +1,247 @@
+// variables
+@bgcolor: #fff;
+@header-bgcolor: #f1f4f4;
+@site-level-border-color: #dadfe1;
+@site-level-border: 1px solid @site-level-border-color;
+
+@content-width: 560px;
+
+@font-color-base: #444;
+@font-color-light: #777;
+@font-color-lighter: #999;
+
+@brand-orange: #f36c21;
+@brand-orange-lt: #f68c51;
+
+@content-border-color: #ddd;
+@content-border: 1px solid @content-border-color;
+
+@border-radius: 3px;
+
+@font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-heading: 22px;
+@font-size-lg: 16px;
+@font-size: 14px;
+
+
+
+// mixins
+
+// Bootstrap Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// CSS image replacement
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+.hide-text() {
+  font: ~"0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// Box sizing
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
+
+.rounded(@radius: @border-radius) {
+  border-radius: @radius;
+}
+
+// resets
+// Reset the box-sizing
+
+*,
+*:before,
+*:after {
+  .box-sizing(border-box);
+}
+
+
+// Body reset
+
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: @font-family;
+  font-size: @font-size;
+  line-height: 1.5;
+  color: @font-color-base;
+  background-color: @bgcolor;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+textarea {
+  height: auto;
+  min-height: 35px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-size: @font-size-heading;
+}
+
+h4,
+h5 {
+  font-size: @font-size-lg;
+}
+
+h6 {
+  font-size: @font-size;
+  font-weight: normal;
+  color: @font-color-light;
+}
+
+button {
+  display: inline-block;
+  border: 1px solid transparent;
+  .rounded;
+  color: #fff;
+  background-color: @brand-orange;
+  letter-spacing: 1px;
+  height: 35px;
+  padding: 7px 13px 5px 14px;
+
+  &:hover {
+    background-color: @brand-orange-lt;
+  }
+}
+
+// handle code á la Bootstrap:
+code,
+pre {
+  font-family: monospace;
+}
+
+// shim in some variables for code handling:
+@code-color: @font-color-light;
+@code-bg: @header-bgcolor;
+
+// Inline code
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: @code-color;
+  background-color: @code-bg;
+  white-space: nowrap;
+  .rounded;
+}
+
+// Blocks of code
+pre.code {
+  display: block;
+  padding: 10px 10px 10px 30px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 21px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: @code-color;
+  background-color: @code-bg;
+  border: @site-level-border;
+  .rounded;
+}
+
+dl {
+  margin-bottom: 12px;
+}
+dt,
+dd {
+  line-height: 21px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+
+a {
+  color: inherit;
+  &:hover {
+    color: @font-color-light;
+  }
+}
+
+// site-wide layout stuff
+.site-header {
+  border-bottom: @site-level-border;
+  height: 80px;
+  padding-left: 50px;
+}
+
+.logotype {
+  .hide-text;
+  height: 80px;
+  width: 161px;
+  background: transparent url('../images/logo.png') no-repeat center;
+}
+
+// this will be used elsewhere as a mixin...
+.content-container {
+  width: @content-width;
+  max-width: @content-width;
+  margin: 0 auto;
+}
+
+.page-header {
+  background-color: @header-bgcolor;
+  border-bottom: @site-level-border;
+  padding: 41px 0;
+}
+
+.title-description {
+  margin: 7px 0 0;
+}
+
+.attribution {
+  color: @font-color-light;
+  margin-bottom: 0;
+}
+
+.page-content {
+  .content-container;
+
+  section {
+    margin: 51px 0 10px;
+  }
+}
